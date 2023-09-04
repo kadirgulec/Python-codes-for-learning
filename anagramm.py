@@ -2,8 +2,10 @@
 def anagram(text1, text2):
     text1 = text1.lower()
     text2 = text2.lower()
+    #Macht eine ordered Liste mit alle buchstaben
     text1 = sorted(text1)
     text2 = sorted(text2)
+    #wenn die zwei Liste gleich sind, ist es ein anagramm
     if text1 == text2:
         return True
     else:
