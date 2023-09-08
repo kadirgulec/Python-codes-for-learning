@@ -1,37 +1,56 @@
 import tkinter as gui
 
+# Global eine Variable verwenden, um das aktuelle Modalfenster zu verfolgen
+aktuelles_modal  = None
+
+def suchen():
+     return print('Suchen')
+def speichern():
+    return print('Speichern')
+
+def abbrechen():
+    return print('Abbrechen')
+
+def hilfe():
+    return print('Hilfe')
+
 window_python = gui.Tk()
-#Überschrifft und Hintergrund Farbe für Fenster
-window_python.title("Projektverwaltung")
+window_python.geometry("600x600")
+window_python.title("Projekt Verwaltung")
 window_python.configure(bg="#E4F1FF")
 
-#Bezeichnung für das Eingabefeld
-label_projekt_name = gui.Label(window_python, text="Projekt Name: ")
-label_projekt_name.grid(row=0,column=0,padx=10,pady=30, sticky="e")
+# Eingabe Beschriftung und Eingabefeld
+eingabe_label = gui.Label(window_python, text="Projekt Name",bg="#E4F1FF")
+eingabe_label.config(font=16)
+eingabe_label.grid(row=1, column=1, padx=10, pady=10, sticky="w")
 
-#Eingabefeld
-projekt_name = gui.Entry(window_python)
-projekt_name_wert = gui.StringVar()
-projekt_name = gui.Entry(window_python, textvariable= projekt_name_wert)
-projekt_name.grid(row=0,column=1,padx=10,pady=10,sticky="e")
+eingabe_eingabe = gui.Entry(window_python)
+eingabe_eingabe.config(width=40, bd=2, font=16)
+eingabe_eingabe.grid(row=1, column=1, padx=210, pady=10, sticky="w")
 
-#buttons um zu Speichern und Suchen Projekten
-button_suchen = gui.Button(window_python, text="Suchen")
-button_suchen.grid(row=1, column=3,pady=3,sticky="ew")
+# Suchen Button
+suchen_button = gui.Button(window_python, text="Suchen", command=suchen)
+suchen_button.config(width=20, bd=2, bg="#176B87", fg="white", highlightbackground="black", font=16)
+suchen_button.grid(row=3, column=1, columnspan=2, padx=390, pady=10, sticky="w")
 
-button_save = gui.Button(window_python,text="Speichern")
-button_save.grid(row=2,column=3,pady=3,sticky="ew")
+# Speichern Button
+speichern_button = gui.Button(window_python, text="Speichern", command=speichern)
+speichern_button.config(width=20, bd=2, bg="#176B87", fg="white", highlightbackground="black", font=16)
+speichern_button.grid(row=4, column=1, columnspan=2, padx=390, pady=10, sticky="w")
 
-#Buttons um zu Hilfe und Abbrechen
-button_cancel = gui.Button(window_python, text="Abbrechen")
-button_cancel.grid(row=3, column=3,pady=3,sticky="ew")
+# Abbrechen Button
+abbrechen_button = gui.Button(window_python, text="Abbrechen", command=abbrechen)
+abbrechen_button.config(width=20, bd=2, bg="#176B87", fg="white", highlightbackground="black", font=16)
+abbrechen_button.grid(row=5, column=1, columnspan=2, padx=390, pady=10, sticky="w")
 
-button_help = gui.Button(window_python, text="Hilfe")
-button_help.grid(row=4, column=3,pady=3,sticky="ew")
+# Hilfe Button
+hilfe_button = gui.Button(window_python, text="Hilfe", command=hilfe)
+hilfe_button.config(width=20, bd=2, bg="#176B87", fg="white", highlightbackground="black", font=16)
+hilfe_button.grid(row=6, column=1, columnspan=2, padx=390, pady=10, sticky="w")
 
 #Navigation Bar
-navigation_frame = gui.Frame(window_python, padx=10,pady=10)
-navigation_frame.grid(row=5, column=0, columnspan=2, sticky="w")
+navigation_frame = gui.Frame(window_python, padx=10,pady=10,bg="#E4F1FF")
+navigation_frame.grid(row=7, column=0, columnspan=2, sticky="w")
 
 button_jump_first = gui.Button(navigation_frame, text="|<")
 button_jump_first.grid(row=0, column=0, padx=5, pady=5)
